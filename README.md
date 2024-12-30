@@ -19,8 +19,8 @@ This is mostly for me incase i literally forget
 
 ### Infrastructure
 
-- Hosting: github pages
-- DNS/domain ownership: cloudfare
+- Hosting: Vercel
+- DNS/domain ownership: Cloudflare
 
 ### Other
 
