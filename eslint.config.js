@@ -14,4 +14,9 @@ export default [
 
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
+  {
+    rules: {
+      'vue/html-indent': ['error', 4],
+    },
+  }
 ]
