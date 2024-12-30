@@ -18,67 +18,58 @@
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
                 <a 
-                    v-for="item in navigation" 
-                    :key="item.name" 
-                    :href="item.href" 
-                    :class="[item.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
-                    :aria-current="item.href === currentPath ? 'page' : undefined"
+                    v-for="page in pages" 
+                    :key="page.name" 
+                    :href="page.href" 
+                    :class="[page.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
+                    :aria-current="page.href === currentPath ? 'page' : undefined"
                 >
-                    {{ item.name }}
+                    {{ page.name }}
                 </a>
               </div>
             </div>
           </div>
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <!-- Profile dropdown -->
-            <Menu as="div" class="relative ml-3">
-              <div>
-                <MenuButton class="relative flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span class="absolute -inset-1.5" />
-                  <span class="sr-only">Open user menu</span>
-                  <img class="rounded-full size-8" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                </MenuButton>
-              </div>
-              <transition enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0" enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
-                <MenuItems class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
-                  <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm text-gray-700']">Your Profile</a>
-                  </MenuItem>
-                  <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
-                  </MenuItem>
-                  <MenuItem v-slot="{ active }">
-                    <a href="#" :class="[active ? 'bg-gray-100 outline-none' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign out</a>
-                  </MenuItem>
-                </MenuItems>
-              </transition>
-            </Menu>
+            <a 
+              href="https://github.com/BenHeath0" 
+              class="w-8 mx-2 rounded-md hover:bg-gray-700"
+              target="_blank"
+            >
+                <img class="bg-white" :src="githubIcon" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/benjheath/" 
+              class="w-8 mx-2 rounded-md hover:bg-gray-700"
+              target="_blank"
+            >
+                <img :src="linkedinIcon" />
+            </a>
           </div>
         </div>
       </div>
   
       <DisclosurePanel class="sm:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1">
-          <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+          <DisclosureButton v-for="page in pages" :key="page.name" as="a" :href="page.href" :class="[page.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="page.current ? 'page' : undefined">{{ page.name }}</DisclosureButton>
         </div>
       </DisclosurePanel>
     </Disclosure>
   </template>
   
 <script setup>
-  import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-  import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+  import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+  import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
   import { computed } from 'vue'
-    import { useRoute } from 'vue-router'
-  const navigation = [
+  import { useRoute } from 'vue-router'
+  import githubIcon from '@/assets/github-mark.svg'
+  import linkedinIcon from '@/assets/linkedin-icon.png'
+  
+  const pages = [
     { name: 'Home', href: '/'},
     { name: 'Resume', href: '/resume'},
     { name: 'Pippin', href: '/pippin'},
   ]
-
-
-
+  
 const route = useRoute()
-
 const currentPath = computed(() => route.path)
 </script>
