@@ -5,8 +5,8 @@
       </p>
       <PDF src="/resume.pdf" />
     </div>
-  </template>
+</template>
   
-  <script setup>
-  import PDF from "pdf-vue3";
-  </script>
+<script setup>
+import PDF from "pdf-vue3";
+</script>
