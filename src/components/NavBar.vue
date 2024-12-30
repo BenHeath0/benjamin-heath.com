@@ -23,6 +23,7 @@
                     :href="page.href" 
                     :class="[page.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
                     :aria-current="page.href === currentPath ? 'page' : undefined"
+                    :target="page.target"
                 >
                     {{ page.name }}
                 </a>
@@ -66,7 +67,7 @@
   
   const pages = [
     { name: 'Home', href: '/'},
-    { name: 'Resume', href: '/resume'},
+    { name: 'Resume', href: '/resume.pdf', target: '_blank'},
     { name: 'Pippin', href: '/pippin'},
   ]
   
