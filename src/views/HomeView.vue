@@ -46,11 +46,28 @@ export default {
         canvas.height = window.innerHeight;
       });
 
+      window.addEventListener("mousemove", (event) => {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        particles.forEach((particle) => {
+          const dx = particle.x - mouseX;
+          const dy = particle.y - mouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 100) {
+            const angle = Math.atan2(dy, dx);
+            particle.dx += Math.cos(angle) * 2;
+            particle.dy += Math.sin(angle) * 2;
+          }
+        });
+      });
+
       class Particle {
         constructor() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
-          this.radius = Math.random() * 3 + 1;
+          this.radius = Math.random() * 5 + 1;
           this.dx = Math.random() * 2 - 1;
           this.dy = Math.random() * 2 - 1;
         }
