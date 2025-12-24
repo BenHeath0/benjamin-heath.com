@@ -5,9 +5,9 @@
       <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Ben Heath</h1>
       <div class="space-y-4">
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          I'm a software engineer based in Boston, currently working as an Engineering Manager at Recharge. 
-          I manage a fullstack engineering team of 6 engineers, responsible for storefront widgets, backend services, and other features. 
-          Previously I was a senior engineer on the same team.
+          I’m a Boston-based software engineer and Engineering Manager at Recharge. 
+          I lead a six-engineer full-stack team building storefront widgets, backend services, and other customer-facing features. 
+          Prior to this role, I was a senior engineer on the team.
         </p>
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
           Previously I worked at MITRE building software in the public interest.
