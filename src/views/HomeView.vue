@@ -1,156 +1,83 @@
 <template>
-  <div class="relative flex items-center justify-center h-full">
-    <!-- Background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient"></div>
-
-    <!-- Particle Animation -->
-    <canvas id="particles" class="absolute inset-0"></canvas>
-
-    <!-- Main Content -->
-    <div class="relative flex items-center justify-center h-full px-20 text-center">
-      <div>
-        <h1 class="text-6xl font-bold text-white md:text-8xl drop-shadow-lg animate-fade-in">Ben Heath</h1>
-        <p class="mt-4 text-xl text-white md:text-2xl drop-shadow-md animate-slide-up">
-          I'm a software engineer based out of Boston working as a fullstack engineer at Recharge, an ecommerce startup
+  <div class="max-w-3xl px-6 py-12 mx-auto md:py-20">
+    <!-- Bio Section -->
+    <section class="mb-16">
+      <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Ben Heath</h1>
+      <div class="space-y-4">
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          I'm a software engineer based in Boston, currently working as an Engineering Manager at Recharge. 
+          I manage a fullstack engineering team of 6 engineers, responsible for storefront widgets, backend services, and other features. 
+          Previously I was a senior engineer on the same team.
         </p>
-        <p class="mt-4 text-xl text-white md:text-2xl drop-shadow-md animate-slide-up">
-          Previously I worked at MITRE building software in the public interest
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          Previously I worked at MITRE building software in the public interest.
         </p>
-        <!-- <button
-          class="px-6 py-3 mt-8 text-lg font-semibold text-white bg-purple-700 rounded-lg shadow-lg hover:bg-purple-800 animate-pulse"
-        >
-          Explore More
-        </button> -->
       </div>
-    </div>
+    </section>
+
+    <!-- Blog Articles / Projects Section -->
+    <section>
+      <h2 class="mb-2 text-2xl font-semibold text-gray-900 md:text-3xl dark:text-white">Things my teams have built</h2>
+      <p class="mb-8 text-gray-600 dark:text-gray-400">
+        Here are some articles/blogs/case studies of features my teams have built over the years.
+      </p>
+      <div class="space-y-8">
+        <article 
+          v-for="article in articles.slice().reverse()" 
+          :key="article.id"
+        >
+          <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+            <a 
+              :href="article.url" 
+              :target="article.external ? '_blank' : undefined"
+              class="hover:underline"
+            >
+              {{ article.title }}
+            </a>
+          </h3>
+          <p class="mb-2 leading-relaxed text-gray-700 dark:text-gray-300">
+            {{ article.description }}
+          </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            {{ article.date }}
+          </p>
+        </article>
+        <p v-if="articles.length === 0" class="italic text-gray-600 dark:text-gray-400">
+          Articles coming soon...
+        </p>
+      </div>
+    </section>
   </div>
 </template>
 
-<script>
-export default {
-  mounted() {
-    this.initParticles();
+<script setup lang="ts">
+interface Article {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  url: string;
+  external?: boolean;
+}
+
+// Add your blog articles/projects here
+const articles: Article[] = [
+  // Example structure - replace with your actual articles
+  {
+    id: 1,
+    title: "The Fight is in Us - MITRE",
+    description: "“The Fight Is In Us” was a U.S. government–led public awareness and donor recruitment campaign launched during the COVID-19 pandemic to encourage recovered patients to donate convalescent plasma for use as an investigational treatment.",
+    date: "2020-2021",
+    url: "https://newsnetwork.mayoclinic.org/discussion/calling-all-covid-19-survivors-now-you-could-help-others-defeat-it/",
+    external: true
   },
-  methods: {
-    initParticles() {
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
-      const particles = [];
-      const numParticles = 100;
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-
-      window.addEventListener("mousemove", (event) => {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-
-        particles.forEach((particle) => {
-          const dx = particle.x - mouseX;
-          const dy = particle.y - mouseY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            const angle = Math.atan2(dy, dx);
-            particle.dx += Math.cos(angle) * 2;
-            particle.dy += Math.sin(angle) * 2;
-          }
-        });
-      });
-
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.radius = Math.random() * 5 + 1;
-          this.dx = Math.random() * 2 - 1;
-          this.dy = Math.random() * 2 - 1;
-        }
-
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
-          ctx.fill();
-        }
-
-        update() {
-          this.x += this.dx;
-          this.y += this.dy;
-
-          if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
-
-          this.draw();
-        }
-      }
-
-      for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach((particle) => particle.update());
-
-        requestAnimationFrame(animate);
-      }
-
-      animate();
-    },
-  },
-};
+  {
+    id: 2,
+    title: "Checkout Upsell - Case Study",
+    description: "Case study on how Puracy used the Checkout Incentives features built by our team to double their subscription checkouts.",
+    date: "2024",
+    url: "https://getrecharge.com/case-studies/puracy-doubles-subscription-checkouts/",
+    external: true
+  }
+];
 </script>
-
-<style>
-.animate-gradient {
-  background-size: 300% 300%;
-  animation: gradient 6s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 2s ease;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-slide-up {
-  animation: slide-up 1.5s ease;
-}
-
-@keyframes slide-up {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-</style>
