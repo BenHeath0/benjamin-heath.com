@@ -69,11 +69,8 @@
 <script setup>
   import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
   import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
-  import { computed } from 'vue'
-  import { useRoute } from 'vue-router'
-  import { useDarkMode } from '@/composables/useDarkMode'
-  import githubIcon from '@/assets/github-mark.svg'
-  import linkedinIcon from '@/assets/linkedin-icon.png'
+  import githubIcon from '~/assets/github-mark.svg'
+  import linkedinIcon from '~/assets/linkedin-icon.png'
   
   const pages = [
     { name: 'Home', href: '/'},

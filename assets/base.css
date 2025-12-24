@@ -82,3 +82,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.dark body {
+  background: #111827; /* gray-900 */
+}
