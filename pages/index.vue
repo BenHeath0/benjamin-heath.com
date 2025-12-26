@@ -62,8 +62,24 @@ interface Article {
 
 // Add your blog articles/projects here
 const articles: Article[] = [
-  {
+{
     id: 1,
+    title: "Project ABCD",
+    description: "MITRE and the FAA introduced Application-Based Capability Development (ABCD), a modern approach to delivering air traffic management software faster and more flexibly. By using agile methods, cloud infrastructure, and modular services, ABCD reduces delivery timelines from years to months and helps the FAA adapt more quickly to change.",
+    date: "2021",
+    url: "https://www.mitre.org/news-insights/impact-story/can-delivering-air-traffic-management-capabilities-become-easy-abcd",
+    external: false
+  },
+  {
+    id: 2,
+    title: "Project PERTI",
+    description: "MITRE developed data-driven tools to help the FAA and aviation industry plan for constantly changing constraints on the National Airspace System — from weather events and VIP travel to construction and volcanic activity. These tools automate planning processes and provide real-time insights, improving collaboration, situational awareness, and decision-making across the system.",
+    date: "2021",
+    url: "https://www.mitre.org/news-insights/impact-story/vips-volcanoes-aviation-tools-enhance-planning-across-skies",
+    external: false
+  },
+{
+    id: 3,
     title: "The Fight is in Us - MITRE",
     description: '"The Fight Is In Us" was a U.S. government–led public awareness and donor recruitment campaign launched during the COVID-19 pandemic to encourage recovered patients to donate convalescent plasma for use as an investigational treatment.',
     date: "2020-2021",
@@ -71,7 +87,7 @@ const articles: Article[] = [
     external: true
   },
   {
-    id: 2,
+    id: 4,
     title: "Checkout Upsell - Case Study",
     description: "Case study on how Puracy used the Checkout Incentives features built by our team to double their subscription checkouts.",
     date: "2024",

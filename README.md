@@ -2,11 +2,11 @@
 
 ![GitHub Workflow Status](https://github.com/BenHeath0/BenHeath0.github.io/actions/workflows/deploy.yml/badge.svg)
 
-Code for my personal website. Built using `npm create vue@latest`
+Code for my personal website. Built using `npm create vue@latest`, but migrated to Nuxt.
 
 ## How to run
 
-Its a basic vue/vite app.
+Its a basic Nuxt app.
 
 ```
 npm install
