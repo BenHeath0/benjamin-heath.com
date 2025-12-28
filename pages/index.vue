@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto md:py-20">
     <!-- Bio Section -->
-    <section class="mb-16">
+    <section class="mb-8">
       <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Ben Heath</h1>
       <div class="space-y-4">
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
