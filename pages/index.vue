@@ -91,9 +91,17 @@ const articles: Article[] = [
   {
     id: 4,
     title: "Checkout Upsell - Case Study",
-    description: "Case study on how Puracy used the Checkout Incentives features built by our team to double their subscription checkouts.",
+    description: "Puracy doubles number of checkouts with subscriptions by enabling Checkout Upsell",
     date: "2024",
     url: "https://getrecharge.com/case-studies/puracy-doubles-subscription-checkouts/",
+    external: true
+  },
+  {
+    id: 5,
+    title: "Checkout Upsell Swap - Case Study",
+    description: "Naked Paper recovers CAC 20% faster with Recharge’s Checkout Upsell Swap.",
+    date: "2026",
+    url: "https://getrecharge.com/case-studies/naked-paper-recovers-cac-20-faster-with-recharges-checkout-upsell-swap/",
     external: true
   }
 ];
