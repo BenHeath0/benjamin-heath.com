@@ -5,8 +5,8 @@
       <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Ben Heath</h1>
       <div class="space-y-4">
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          I'm a Boston-based software engineer and Engineering Manager at Recharge. 
-          I lead a six-engineer full-stack team building storefront widgets, backend services, and other customer-facing features. 
+          I'm a Boston-based software engineer and Engineering Manager at Recharge.
+          I lead a six-engineer full-stack team building storefront widgets, backend services, and other customer-facing features.
           Prior to this role, I was a senior engineer on the team.
         </p>
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -22,17 +22,19 @@
         Here are some articles/blogs/case studies of features my teams have built over the years.
       </p>
       <div class="space-y-8">
-        <article 
-          v-for="article in articles.slice().reverse()" 
+        <article
+          v-for="article in articles.slice().reverse()"
           :key="article.id"
         >
-          <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
-            <a 
-              :href="article.url" 
+          <h3 class="mb-2 text-xl font-semibold">
+            <a
+              :href="article.url"
               :target="article.external ? '_blank' : undefined"
-              class="hover:underline"
+              :rel="article.external ? 'noopener noreferrer' : undefined"
+              class="inline-flex items-baseline gap-1 text-blue-600 underline decoration-blue-600/40 underline-offset-4 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/40 dark:hover:decoration-blue-400"
             >
               {{ article.title }}
+              <span v-if="article.external" aria-hidden="true" class="text-sm">↗</span>
             </a>
           </h3>
           <p class="mb-2 leading-relaxed text-gray-700 dark:text-gray-300">
@@ -68,7 +70,7 @@ const articles: Article[] = [
     description: "MITRE and the FAA introduced Application-Based Capability Development (ABCD), a modern approach to delivering air traffic management software faster and more flexibly. By using agile methods, cloud infrastructure, and modular services, ABCD reduces delivery timelines from years to months and helps the FAA adapt more quickly to change.",
     date: "2021",
     url: "https://www.mitre.org/news-insights/impact-story/can-delivering-air-traffic-management-capabilities-become-easy-abcd",
-    external: false
+    external: true
   },
   {
     id: 2,
@@ -76,7 +78,7 @@ const articles: Article[] = [
     description: "MITRE developed data-driven tools to help the FAA and aviation industry plan for constantly changing constraints on the National Airspace System — from weather events and VIP travel to construction and volcanic activity. These tools automate planning processes and provide real-time insights, improving collaboration, situational awareness, and decision-making across the system.",
     date: "2021",
     url: "https://www.mitre.org/news-insights/impact-story/vips-volcanoes-aviation-tools-enhance-planning-across-skies",
-    external: false
+    external: true
   },
 {
     id: 3,
