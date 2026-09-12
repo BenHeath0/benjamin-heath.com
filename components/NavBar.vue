@@ -13,7 +13,7 @@
         </div>
         <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
           <div class="flex items-center shrink-0">
-            <img class="w-auto h-8" src="/icon.png" alt="Your Company" />
+            <img class="w-auto h-8 dark:invert" src="/icon.svg" alt="Ben Heath" />
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
