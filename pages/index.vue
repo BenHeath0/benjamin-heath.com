@@ -11,10 +11,14 @@
           our Customer Portals, and our Merchant Portal.
         </p>
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-
+          Previously I worked at MITRE building software in the public interest.
         </p>
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          Previously I worked at MITRE building software in the public interest.
+          Want to reach out?
+          <a
+            href="mailto:benjheath0@gmail.com"
+            class="text-blue-600 underline decoration-blue-600/40 underline-offset-4 hover:decoration-blue-600 dark:text-blue-400 dark:decoration-blue-400/40 dark:hover:decoration-blue-400"
+          >Send me an email</a>.
         </p>
       </div>
     </section>

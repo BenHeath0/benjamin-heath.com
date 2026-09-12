@@ -54,6 +54,13 @@
           >
             <img :src="linkedinIcon" />
           </a>
+          <a 
+            href="mailto:benjheath0@gmail.com" 
+            class="p-1 mx-2 text-gray-600 rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+            aria-label="Email Ben Heath"
+          >
+            <EnvelopeIcon class="w-6 h-6" />
+          </a>
         </div>
       </div>
     </div>
@@ -68,7 +75,7 @@
   
 <script setup>
   import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-  import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
+  import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon, EnvelopeIcon } from '@heroicons/vue/24/outline'
   import githubIcon from '~/assets/github-mark.svg'
   import linkedinIcon from '~/assets/linkedin-icon.png'
   
