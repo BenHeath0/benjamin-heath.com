@@ -5,9 +5,13 @@
       <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Ben Heath</h1>
       <div class="space-y-4">
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          I'm a Boston-based software engineer and Engineering Manager at Recharge.
-          I lead a six-engineer full-stack team building storefront widgets, backend services, and other customer-facing features.
-          Prior to this role, I was a senior engineer on the team.
+          I'm a Boston-based Software Engineer and Engineering Manager at Recharge, where I manage our Storefront Experience team.
+          We own a wide range of critical services across different product areas,
+          from the widgets that live on merchant's storefronts,
+          our Customer Portals, and our Merchant Portal.
+        </p>
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+
         </p>
         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
           Previously I worked at MITRE building software in the public interest.
@@ -53,6 +57,11 @@
 </template>
 
 <script setup lang="ts">
+useSeo({
+  title: 'Ben Heath — Engineering Manager',
+  path: '/'
+})
+
 interface Article {
   id: number;
   title: string;

@@ -59,6 +59,12 @@
 </template>
 
 <script setup lang="ts">
+useSeo({
+  title: 'Writing · Ben Heath',
+  description: 'Posts from Ben Heath\'s Substack on engineering, leadership, and building software.',
+  path: '/writing'
+})
+
 const { data: posts, pending, error } = await useFetch('/api/substack')
 
 function stripHtml(html: string | undefined | null): string {

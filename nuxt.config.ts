@@ -1,4 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+const siteUrl = 'https://www.benjamin-heath.com'
+const siteName = 'Ben Heath'
+const siteDescription = 'Boston-based software engineer and Engineering Manager at Recharge, leading the team behind storefront widgets, the Merchant Portal, and Customer Portals.'
+const siteImage = `${siteUrl}/icon.png`
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -10,6 +16,15 @@ export default defineNuxtConfig({
 
   css: ['~/assets/main.css'],
 
+  runtimeConfig: {
+    public: {
+      siteUrl,
+      siteName,
+      siteDescription,
+      siteImage
+    }
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -19,10 +34,26 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Ben Heath',
+      title: siteName,
+      htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: siteDescription },
+        { name: 'author', content: siteName },
+        { property: 'og:site_name', content: siteName },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: siteName },
+        { property: 'og:description', content: siteDescription },
+        { property: 'og:url', content: siteUrl },
+        { property: 'og:image', content: siteImage },
+        { property: 'og:image:width', content: '960' },
+        { property: 'og:image:height', content: '540' },
+        { property: 'og:image:alt', content: 'BJH monogram' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: siteName },
+        { name: 'twitter:description', content: siteDescription },
+        { name: 'twitter:image', content: siteImage }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/icon.png' }

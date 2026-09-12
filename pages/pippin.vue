@@ -11,3 +11,11 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+useSeo({
+  title: 'Pippin · Ben Heath',
+  description: 'Pictures of my dog, Pippin.',
+  path: '/pippin'
+})
+</script>
