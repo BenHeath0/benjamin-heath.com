@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-3xl px-6 py-12 mx-auto md:py-20">
     <section class="mb-16">
-      <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Writing</h1>
+      <h1 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white">Blog</h1>
       <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
         Posts from my <a href="https://benjheath.substack.com" target="_blank" class="underline hover:text-gray-900 dark:hover:text-white">Substack</a>.
       </p>
@@ -60,9 +60,9 @@
 
 <script setup lang="ts">
 useSeo({
-  title: 'Writing · Ben Heath',
+  title: 'Blog · Ben Heath',
   description: 'Posts from Ben Heath\'s Substack on engineering, leadership, and building software.',
-  path: '/writing'
+  path: '/blog'
 })
 
 const { data: posts, pending, error } = await useFetch('/api/substack')
